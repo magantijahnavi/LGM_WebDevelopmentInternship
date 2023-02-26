@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculator</title>
+    <style type="text/css">
+        .calculator {
+            width: 400px;
+            margin: 100px auto;
+            background-color:black;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+        }
+        #equalto{
+             background-color:deeppink;
+        }
+
+        #display  {
+            width: 74%;
+            height: 45px;
+            font-size: 30px;
+            text-align: right;
+            border: none;
+            outline: none;
+        }
+
+        #cbutton{
+             width: 80px;
+            height: 50px;
+            font-size: 20px;
+            margin: 5px;
+            background-color:deeppink;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 3px;
+            grid-auto-rows: minmax(50px, auto);
+            margin-top: 10px;
+        }
+
+        .buttons button {
+            width: 80px;
+            height: 40px;
+            font-size: 20px;
+            margin: 5px;
+            background-color: blueviolet;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #D9D9D9;
+        }
+
+        
+    </style>
+</head>
+<body>
+    <div class="calculator">
+       
+            <input type="text" id="display" readonly>
+            
+            <button id= "cbutton" onclick="clearDisplay()">C</button>
+       
+        <div class="buttons">
+              <button onclick="insertValue('1')">1</button>
+            <button onclick="insertValue('2')">2</button>
+            <button onclick="insertValue('3')">3</button>
+            <button onclick="insertValue('/')">&#247;</button>
+             <button onclick="insertValue('4')">4</button>
+            <button onclick="insertValue('5')">5</button>
+            <button onclick="insertValue('6')">6</button>
+              <button onclick="insertValue('-')">&#8722;</button>
+           
+            <button onclick="insertValue('7')">7</button>
+            <button onclick="insertValue('8')">8</button>
+            <button onclick="insertValue('9')">9</button>
+           <button onclick="insertValue('+')">&#43;</button>
+            <button onclick="insertValue('.')">.</button>
+        <button onclick="insertValue('0')">0</button>
+        <button id="equalto" onclick="calculate()">=</button>
+		
+             <button onclick="insertValue('*')">&#215;</button>
+		</div>
+	</div>
+	<script>function insertValue(value) {
+	document.getElementById('display').value += value;
+}
+
+function clearDisplay() {
+	document.getElementById('display').value = '';
+}
+
+function backspace() {
+	let displayValue = document.getElementById('display').value;
+	document.getElementById('display').value = displayValue.slice(0, -1);
+}
+
+function calculate() {
+	let displayValue = document.getElementById('display').value;
+	let result = eval(displayValue);
+	document.getElementById('display').value = result;
+}
+</script>
+</body>
+</html>
